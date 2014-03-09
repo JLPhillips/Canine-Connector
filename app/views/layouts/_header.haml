@@ -1,5 +1,7 @@
 %nav.top-bar{"data-topbar" => ""}
   %ul.title-area
+    %li.logo
+      = image_tag("cc-logo.png")
     %li.name
       %h1
         %a{href: "/dogs"} Canine Connector
@@ -10,7 +12,7 @@
     %ul.right
       %li.active
         - if user_signed_in?
-          .header-avatar= image_tag current_user.user_image
+          .header-avatar.collapse= image_tag current_user.user_image
         / %a{href: "#"} Right Button Active
       %li.has-dropdown
         - if user_signed_in?
@@ -30,8 +32,12 @@
             %li= link_to "Log In", new_user_session_path, :class => 'navbar-link'
     / Left Nav Section
     / %ul.left
-    /   %li
-    /     %a{href: "#"} Left Nav Button
+    /   %li.has-form
+    /     .row.collapse
+    /       .large-8.small-9.columns
+    /         %input{placeholder: "Find a Dog", type: "text"}/
+    /       .large-4.small-3.columns
+    /         %a.alert.button.expand{href: "#"} Search
 
 
 

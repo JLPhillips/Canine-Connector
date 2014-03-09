@@ -1,0 +1,53 @@
+@import "foundation_and_overrides";
+/* Add imports of custom sass/scss files here *//*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require foundation_and_overrides
+
+ *= require_tree .
+ */
+@import "active_admin/mixins";
+@import "active_admin/base";
+
+body {
+  background: url('bg.jpg') center no-repeat;
+  background-size: cover;
+
+  .top-bar {
+    .header-avatar {
+      height: 40px;
+      width: 40px;
+
+      // background-position: cover;
+      // -webkit-box-shadow: 0 0 5px black;
+      // -moz-box-shadow: 0 0 5px black;
+      // box-shadow: 0 0 5px black;
+      -webkit-border-radius: 10px;
+      -moz-border-radius: 10px;
+      border-radius: 10px;
+      float: left;
+      position: relative;
+      top: 3px;
+      img {
+        height: 40px;
+        width: auto;
+        float: right;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        border-radius: 10px;
+      }
+    }
+
+    a {
+      text-decoration: none !important;
+    }
+  }
+}

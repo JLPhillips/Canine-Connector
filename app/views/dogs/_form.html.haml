@@ -1,0 +1,48 @@
+= form_for @dog do |f|
+  - if @dog.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@dog.errors.count, "error")} prohibited this dog from being saved:"
+      %ul
+        - @dog.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    / = f.label "Name"
+    = f.text_field :name, placeholder: "Name"
+  .field
+    / # = f.label "Names it Responds To"
+    = f.text_field :responds_to, placeholder: "Names It Responds To"
+  .field
+    / # = f.label :breed
+    = f.text_field :breed, placeholder: "Breed"
+  .field
+    = f.select(:age, ["Select Age", "Puppy", "Young", "Adult", "Old"])
+    / = f.label :age
+    / = f.text_field :age
+  .field
+    / = f.label :features
+    / # = f.select(:features,  ["Select a Feature", "Head", "Back", "Tail", ])
+    = f.text_field :features, placeholder: "Features"
+  / .field
+  /   = f.label :unique_features
+  /   = f.text_area :unique_features
+  .field
+    = f.label :is_lost
+    = f.check_box :is_lost
+  .field
+    = f.label :is_found
+    = f.check_box :is_found
+  / .field
+  /   = f.label :has_returned
+  /   = f.check_box :has_returned
+  / .field
+  /   = f.label :hero_id
+  /   = f.number_field :hero_id
+  .field
+    = f.label :date_found
+    = f.date_select :date_found
+  .field
+    = f.label :location
+    = f.text_field :location
+  .actions
+    = f.submit 'Save'

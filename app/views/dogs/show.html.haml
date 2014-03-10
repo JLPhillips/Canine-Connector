@@ -5,55 +5,37 @@
         = image_tag @dog.picture
       .dog-stats
         %h1= @dog.name
-        %h2 Also responds to
-        %h2= @dog.responds_to
-        %h2= @dog.breed
-        %h3= @dog.age
+        %h2.breed= @dog.breed
+        %h2.age= @dog.age
+        %h2.responds-to Also responds to
+        %h2.responds-to= @dog.responds_to
+        - if @dog.is_lost?
+          %h2.location Last seen around
+          %h2.location= @dog.location
+        - elsif @dog.is_found?
+          %h2.location Found around
+          %h2.location= @dog.location
+        - if @dog.is_lost?
+          %h2.date On
+          %h2.date= @dog.date_found
+        - elsif @dog.is_found?
+          %h2.date On
+          %h2.date= @dog.date_found
+        %h3= @dog.unique_features
       .the-rest
 
       %p#notice= notice
 
-      / %p
-      /   %b Name:
-      /   = @dog.name
-      / %p
-      /   %b Breed:
-      /   = @dog.breed
-      / %p
-      /   %b Age:
-      /   = @dog.age
-      / %p
-      /   %b Features:
-      /   = @dog.features
-      / %p
-      /   %b Unique features:
-      /   = @dog.unique_features
-      / %p
-      /   %b Is lost:
-      /   = @dog.is_lost
-      / %p
-      /   %b Is found:
-      /   = @dog.is_found
-      / %p
-      /   %b Has returned:
-      /   = @dog.has_returned
-      / %p
-      /   %b Hero:
-      /   = @dog.hero_id
-      / %p
-      /   %b Date found:
-      /   = @dog.date_found
-      / %p
-      /   %b Location:
-      /   = @dog.location
+    - if @dog.is_lost? && @dog.user != current_user
+      %h1.think= link_to "I think I've found this dog.", "#"
+    -elsif @dog.is_found? && @dog.user != current_user
+      %h1.think= link_to "I think this is my dog.", "#"
 
-      - if @dog.is_lost? && @dog.user != current_user
-        = link_to 'I think this is my dog.', "#"
-      -elsif @dog.is_found? && @dog.user != current_user
-        = link_to "I think I found this dog.", "#"
-
-      - if @dog.user == current_user
-
-        = link_to "Delete", dog_path, :method => :delete, :data => { :confirm => 'Are you sure?' }
-        = link_to "Edit", edit_dog_path(@dog)
-        = link_to 'Back', dogs_path
+    - if @dog.user == current_user
+      %ul.controls-ul
+        %li
+          %h2.controls= link_to "Delete", dog_path, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %li
+          %h2.controls= link_to "Edit", edit_dog_path(@dog)
+        %li
+          %h2.controls= link_to 'Back', dogs_path

@@ -8,17 +8,17 @@
 
   .field
   = f.label "Let's see what it looks like!"
-  = f.file_field :picture
+  = f.file_field :picture, required: true
 
   .field
     = f.label "Did it have a name tag? If not, just give it a name."
-    = f.text_field :name, placeholder: "Name"
+    = f.text_field :name, placeholder: "Name", required: true
   .field
     = f.label "What are some names it responds to? (Seperate by commas!)"
-    = f.text_field :responds_to, placeholder: "Names It Responds To"
+    = f.text_field :responds_to, placeholder: "Names It Responds To", required: true
   .field
     = f.label "What breed does it look like? If more than one, say Mix, or Mutt."
-    = f.text_field :breed, placeholder: "Breed"
+    = f.text_field :breed, placeholder: "Breed", required: true
   .field
     = f.label "Choose an age range from the dropdown below!"
     = f.select(:age, ["Select Age", "Puppy", "Young", "Adult", "Old"])
@@ -28,17 +28,17 @@
   .field
     = f.label "What are some quick features? Seperate different ones by commas!"
     / # = f.select(:features,  ["Select a Feature", "Head", "Back", "Tail", ])
-    = f.text_field :features, placeholder: "Feature Tags"
+    = f.text_field :features, placeholder: "Feature Tags", required: true
   .field
     = f.label "Now write a short description with more detailed features."
-    = f.text_area :unique_features
+    = f.text_area :unique_features, required: true
     %br/
   .field
     = f.label "Check here if this is a dog you have lost and are looking for."
-    = f.check_box :is_lost
+    = f.check_box :is_lost, required: true
   .field
     = f.label "...or check here if you have found this dog and want to find its owner!"
-    = f.check_box :is_found
+    = f.check_box :is_found, required: true
   / .field
   /   = f.label :has_returned
   /   = f.check_box :has_returned
@@ -47,12 +47,12 @@
   /   = f.number_field :hero_id
   .field
     = f.label "Please tell us the date you either lost or found this dog."
-    = f.date_select :date_found
+    = f.date_select :date_found, required: true
     %br/
     %br/
     %br/
   .field
     = f.label "Please give a general location you lost/found the dog, like, Vandy!"
-    = f.text_field :location, placeholder: "Location Tags"
+    = f.text_field :location, placeholder: "Location Tags", required: true
   .actions
     = f.submit 'Post Dog!'

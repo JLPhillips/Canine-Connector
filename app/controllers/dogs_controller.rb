@@ -28,7 +28,8 @@ class DogsController < InheritedResources::Base
       :date_found,
       :date_lost,
       :location,
-      :user_id)
+      :id,
+      :user_id,)
   end
 
 end

@@ -1,4 +1,5 @@
 class DogsController < InheritedResources::Base
+  before_action :set_item, only: [:show, :update]
 
   def create
     @dog = current_user.dogs.new(dog_params)
@@ -13,10 +14,15 @@ class DogsController < InheritedResources::Base
   end
 
   def update
-    # @dog = current_user.dogs.update(dog_params)
+    @dog.update(dog_params)
+    redirect_to @dog
   end
 
   private
+
+  def set_item
+    @dog = Dog.find(params[:id])
+  end
 
   def dog_params
     params.require(:dog).permit(

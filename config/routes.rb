@@ -1,4 +1,5 @@
 CanineConnector::Application.routes.draw do
+  get "static/test"
   # get "pages/landing"
   # get "pages/home"
   # get "pages/help"
@@ -14,12 +15,12 @@ CanineConnector::Application.routes.draw do
   # get '/',        to: 'pages#landing'
   # get '/home',    to: 'pages#home'
   # get '/dashboard',    to: 'pages#dashboard'
-  get '/help',    to: 'pages#help'
-  get '/about',   to: 'pages#about'
-  get '/terms',   to: 'pages#terms'
-  get '/privacy', to: 'pages#privacy'
-  get '/cookies', to: 'pages#cookies'
-  get '/dev',      to: 'pages#dev'
+  get 'help',    to: 'pages#help'
+  get 'about',   to: 'pages#about'
+  get '/terms'  => 'pages#terms'
+  get 'privacy', to: 'pages#privacy'
+  get 'cookies', to: 'pages#cookies'
+  get 'dev',      to: 'pages#dev'
 
   # resource :pages, only: [:index] do
   #   member do

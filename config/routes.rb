@@ -1,26 +1,26 @@
 CanineConnector::Application.routes.draw do
-  get "static/test"
-  # get "pages/landing"
-  # get "pages/home"
-  # get "pages/help"
-  # get "pages/about"
-  # get "pages/terms"
-  # get "pages/privacy"
-  # get "pages/cookies"
-  # get "pages/dev"
-  # get "pages/dashboard"
 
-  root to: "dogs#index"
 
+
+
+
+  get "static/about_page"
+  get "static/landing_page"
+  get "static/dev_page"
+  get "static/privacy_page"
+  get "static/help_page"
+  get "static/terms_page"
+  get "static/cookies_page"
+  get "static/home_page"
   # get '/',        to: 'pages#landing'
   # get '/home',    to: 'pages#home'
   # get '/dashboard',    to: 'pages#dashboard'
-  get 'help',    to: 'pages#help'
-  get 'about',   to: 'pages#about'
-  get '/terms'  => 'pages#terms'
-  get 'privacy', to: 'pages#privacy'
-  get 'cookies', to: 'pages#cookies'
-  get 'dev',      to: 'pages#dev'
+  # get 'help',    to: 'pages#help'
+  # get 'about',   to: 'pages#about'
+  # get '/terms'  => 'pages#terms'
+  # get 'privacy', to: 'pages#privacy'
+  # get 'cookies', to: 'pages#cookies'
+  # get 'dev',      to: 'pages#dev'
 
   # resource :pages, only: [:index] do
   #   member do
@@ -32,6 +32,8 @@ CanineConnector::Application.routes.draw do
   #     get :dev
   #   end
   # end
+
+  root to: "dogs#index"
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)

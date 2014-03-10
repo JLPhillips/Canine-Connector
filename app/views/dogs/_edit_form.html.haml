@@ -1,0 +1,58 @@
+= form_for @dog, :html => {multipart: true} do |f|
+  - if @dog.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@dog.errors.count, "error")} prohibited this dog from being saved:"
+      %ul
+        - @dog.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label "Change the picture?"
+    = f.file_field :picture
+
+  .field
+    = f.label "Change the name?"
+    = f.text_field :name, placeholder: "Name"
+  .field
+    = f.label "Change the names it responds to?"
+    = f.text_field :responds_to, placeholder: "Names It Responds To"
+  .field
+    = f.label "Change the breed?"
+    = f.text_field :breed, placeholder: "Breed"
+  .field
+    = f.label "Change the age?"
+    = f.select(:age, ["Select Age", "Puppy", "Young", "Adult", "Old"])
+    %br/
+    %br/
+    / = f.text_field :age
+  .field
+    = f.label "Change the features?"
+    / # = f.select(:features,  ["Select a Feature", "Head", "Back", "Tail", ])
+    = f.text_field :features, placeholder: "Feature Tags"
+  .field
+    = f.label "Change the description?"
+    = f.text_area :unique_features
+    %br/
+  .field
+    = f.label "Still lost?"
+    = f.check_box :is_lost
+  .field
+    = f.label "...or is it still found?"
+    = f.check_box :is_found
+  / .field
+  /   = f.label :has_returned
+  /   = f.check_box :has_returned
+  / .field
+  /   = f.label :hero_id
+  /   = f.number_field :hero_id
+  .field
+    = f.label "Is this the correct date?"
+    = f.date_select :date_found
+    %br/
+    %br/
+    %br/
+  .field
+    = f.label "Change the location?"
+    = f.text_field :location, placeholder: "Location Tags"
+  .actions
+    = f.submit 'Post Dog!'

@@ -11,7 +11,7 @@ CanineConnector::Application.routes.draw do
 
   root to: "dogs#index"
 
-  get '/',        to: 'pages#landing'
+  # get '/',        to: 'pages#landing'
   # get '/home',    to: 'pages#home'
   # get '/dashboard',    to: 'pages#dashboard'
   get '/help',    to: 'pages#help'
@@ -21,11 +21,20 @@ CanineConnector::Application.routes.draw do
   get '/cookies', to: 'pages#cookies'
   get '/dev',      to: 'pages#dev'
 
+  # resource :pages, only: [:index] do
+  #   member do
+  #     get :help
+  #     get :about
+  #     get :terms
+  #     get :privacy
+  #     get :cookies
+  #     get :dev
+  #   end
+  # end
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   resources :dogs
-
-  # root to: "dogs#index"
 
   devise_for :users
 

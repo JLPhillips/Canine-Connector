@@ -12,6 +12,10 @@ class DogsController < InheritedResources::Base
     end
   end
 
+  def update
+    # @dog = current_user.dogs.update(dog_params)
+  end
+
   private
 
   def dog_params

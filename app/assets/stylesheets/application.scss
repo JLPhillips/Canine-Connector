@@ -22,6 +22,11 @@
   -moz-border-radius: 10px;
   border-radius: 10px;
 }
+@mixin box_shadow {
+  -webkit-box-shadow: 0px 0px 15px black;
+  -moz-box-shadow: 0px 0px 15px black;
+  box-shadow: 0px 0px 15px black;
+}
 
 
 body {
@@ -30,12 +35,35 @@ body {
 
 // -----------------------------------------------[DOG PROFILE]----------------->
 
+  #myModal {
+    background: url('paper3.jpg') center no-repeat;
+    background-size: cover;
+    font-family: "Love Ya Like A Sister", cursive;
+    .contact-button {
+      margin: auto;
+    }
+    h2 {
+      text-align: center;
+    }
+    p {
+      text-align: center;
+    }
+  }
+
   .think {
-    padding-top: 10px;
+    padding-top: 25px;
+    padding-bottom: 10px;
     font-family: "Love Ya Like A Sister", cursive;
     font-size: 50px;
     text-align: center;
-    margin-bottom: -5px;
+    // margin-bottom: -5px;
+    text-decoration: none;
+    color: white;
+    display: block;
+
+    &:hover {
+      color: gray;
+    }
     a {
       text-decoration: none;
       color: white;
@@ -76,9 +104,10 @@ body {
     margin-top: 20px;
     font-family: "Love Ya Like A Sister", cursive;
     background-color: rgba(0,0,0,0.5);
-    @include border_radius;
+    // @include border_radius;
     background: url('paper3.jpg') center no-repeat;
     background-size: cover;
+    @include box_shadow;
 
 
     .dogatar {
@@ -302,7 +331,8 @@ body {
         background-color: white;
         background: url('paper3.jpg') center no-repeat;
         background-size: cover;
-        @include border_radius;
+        // @include border_radius;
+        @include box_shadow;
 
 
         .dog-picture {

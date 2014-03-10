@@ -1,4 +1,11 @@
 .row
+  #myModal.reveal-modal{"data-reveal" => ""}
+    %h2 Click below to initiate contact with this user.
+    %p.lead This will notify, email, and text this person (if applicable). Direct messaging, coming soon!
+    .contact-button.button GO!
+    %p.lead Good luck!
+    %a.close-reveal-modal ×
+.row
   .12-small.columns
     .dog-profile-container
       .dogatar
@@ -29,7 +36,8 @@
     - if @dog.is_lost? && @dog.user != current_user
       %h1.think= link_to "I think I've found this dog.", "#"
     -elsif @dog.is_found? && @dog.user != current_user
-      %h1.think= link_to "I think this is my dog.", "#"
+      %a.think{"data-reveal" => "", "data-reveal-id" => "myModal", href: "#"} I think this is my dog.
+      / %h1.think= link_to "I think this is my dog.", "#"
 
     - if @dog.user == current_user
       %ul.controls-ul

@@ -1,37 +1,22 @@
 CanineConnector::Application.routes.draw do
 
+  # get "static/about_page"
+  # get "static/landing_page"
+  # get "static/dev_page"
+  # get "static/privacy_page"
+  # get "static/help_page"
+  # get "static/terms_page"
+  # get "static/cookies_page"
+  # get "static/home_page"
 
-
-
-
-  get "static/about_page"
-  get "static/landing_page"
-  get "static/dev_page"
-  get "static/privacy_page"
-  get "static/help_page"
-  get "static/terms_page"
-  get "static/cookies_page"
-  get "static/home_page"
-  # get '/',        to: 'pages#landing'
-  # get '/home',    to: 'pages#home'
-  # get '/dashboard',    to: 'pages#dashboard'
-  # get 'help',    to: 'pages#help'
-  # get 'about',   to: 'pages#about'
-  # get '/terms'  => 'pages#terms'
-  # get 'privacy', to: 'pages#privacy'
-  # get 'cookies', to: 'pages#cookies'
-  # get 'dev',      to: 'pages#dev'
-
-  # resource :pages, only: [:index] do
-  #   member do
-  #     get :help
-  #     get :about
-  #     get :terms
-  #     get :privacy
-  #     get :cookies
-  #     get :dev
-  #   end
-  # end
+  # get '/',        to: 'static#landing_page'
+  # get '/home',    to: 'static#landing_page'
+  match '/help',    to: 'static#help_page', via: "get"
+  match '/about',   to: 'static#about_page', via: "get"
+  match '/terms'  => 'static#terms_page', via: "get"
+  match '/privacy', to: 'static#privacy_page', via: "get"
+  match '/cookies', to: 'static#cookies_page', via: "get"
+  match '/dev',      to: 'static#dev_page', via: "get"
 
   root to: "dogs#index"
 

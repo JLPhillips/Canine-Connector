@@ -1,80 +1,36 @@
 - provide(:title, "Dogs")
 .row
   .12-small.columns
-    %h1 All Dogs
+    #home-page-main
+      #home-page-lost
+        %h1.recent-title Recently Lost
+        - @dogs.each do |dog|
+          .mini-dog
+            .dog-picture
+              = image_tag dog.picture
+            .dog-specs
+              %h1.dogname= link_to dog.name, dog_path(dog)
+              %h2.dogbreed= dog.breed
+              %h3.dogage= dog.age
+            / .dog-breed
+            /   %h2= dog.breed
+            / .dog-age
+            /   %h3= dog.age
 
-    / %h1 Lost
-    / %table
-    /   %tr
-    /     %th Name
-    /     %th Breed
-    /     %th Age
-    /     %th Features
-    /     %th Unique features
-    /     %th Is lost
-    /     %th Is found
-    /     %th Has returned
-    /     %th Hero
-    /     %th Date found
-    /     %th Location
-    /     %th
-    /     %th
-    /     %th
+            / %li= dog.features
+            / %li= dog.date_found
+            / %li= dog.is_lost
+            / %li= dog.is_found
+        %h2.see-all See All Lost
 
-    /   - @dogs.is_lost.each do |dog|
-    /     %tr
-    /       %td= dog.name
-    /       %td= dog.breed
-    /       %td= dog.age
-    /       %td= dog.features
-    /       %td= dog.unique_features
-    /       / %td= dog.is_lost
-    /       / %td= dog.is_found
-    /       / %td= dog.has_returned
-    /       / %td= dog.hero_id
-    /       %td= dog.date_found
-    /       %td= dog.location
-    /       %td= link_to 'Show', dog
-    /       %td= link_to 'Edit', edit_dog_path(dog)
-    /       %td= link_to 'Destroy', dog, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-.row
-  .12-small.columns
-    %h1 Found
-    %table
-      %tr
-        %th Name
-        %th Breed
-        %th Age
-        %th Features
-        %th Unique features
-        / %th Is lost
-        / %th Is found
-        / %th Has returned
-        / %th Hero
-        %th Date found
-        %th Location
-        %th
-        %th
-        %th
-
-      - @dogs.each do |dog|
-        %tr
-          %td= dog.name
-          %td= dog.breed
-          %td= dog.age
-          %td= dog.features
-          %td= dog.unique_features
-          / %td= dog.is_lost
-          / %td= dog.is_found
-          / %td= dog.has_returned
-          / %td= dog.hero_id
-          %td= dog.date_found
-          %td= dog.location
-          / %td= link_to 'Show', dog
-          / %td= link_to 'Edit', edit_dog_path(dog)
-          / %td= link_to 'Destroy', dog, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-    %br
-
-    = link_to 'New Dog', new_dog_path
+      #home-page-found
+        %h1.recent-title Recently Found
+        - @dogs.each do |dog|
+          .mini-dog
+            .dog-picture
+              = image_tag dog.picture
+            .dog-specs
+              %h1.dogname= link_to dog.name, dog_path(dog)
+              %h2.dogbreed= dog.breed
+              %h3.dogage= dog.age
+        %h2.see-all See All Found

@@ -1,4 +1,24 @@
 CanineConnector::Application.routes.draw do
+  # get "pages/landing"
+  # get "pages/home"
+  # get "pages/help"
+  # get "pages/about"
+  # get "pages/terms"
+  # get "pages/privacy"
+  # get "pages/cookies"
+  # get "pages/dev"
+  # get "pages/dashboard"
+
+  get '/',        to: 'pages#landing'
+  get '/home',    to: 'pages#home'
+  get '/dashboard',    to: 'pages#dashboard'
+  get '/help',    to: 'pages#help'
+  get '/about',   to: 'pages#about'
+  get '/terms',   to: 'pages#terms'
+  get '/privacy', to: 'pages#privacy'
+  get '/cookies', to: 'pages#cookies'
+  get '/dev',      to: 'pages#dev'
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   resources :dogs

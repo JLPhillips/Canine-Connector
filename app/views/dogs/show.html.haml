@@ -1,39 +1,41 @@
-%p#notice= notice
+.row
+  .12-small.columns
+    %p#notice= notice
 
-%p
-  %b Name:
-  = @dog.name
-%p
-  %b Breed:
-  = @dog.breed
-%p
-  %b Age:
-  = @dog.age
-%p
-  %b Features:
-  = @dog.features
-%p
-  %b Unique features:
-  = @dog.unique_features
-%p
-  %b Is lost:
-  = @dog.is_lost
-%p
-  %b Is found:
-  = @dog.is_found
-%p
-  %b Has returned:
-  = @dog.has_returned
-%p
-  %b Hero:
-  = @dog.hero_id
-%p
-  %b Date found:
-  = @dog.date_found
-%p
-  %b Location:
-  = @dog.location
+    %p
+      %b Name:
+      = @dog.name
+    %p
+      %b Breed:
+      = @dog.breed
+    %p
+      %b Age:
+      = @dog.age
+    %p
+      %b Features:
+      = @dog.features
+    %p
+      %b Unique features:
+      = @dog.unique_features
+    %p
+      %b Is lost:
+      = @dog.is_lost
+    %p
+      %b Is found:
+      = @dog.is_found
+    %p
+      %b Has returned:
+      = @dog.has_returned
+    %p
+      %b Hero:
+      = @dog.hero_id
+    %p
+      %b Date found:
+      = @dog.date_found
+    %p
+      %b Location:
+      = @dog.location
 
-= link_to 'Edit', edit_dog_path(@dog)
-\|
-= link_to 'Back', dogs_path
+    = link_to 'Edit', edit_dog_path(@dog)
+    \|
+    = link_to 'Back', dogs_path

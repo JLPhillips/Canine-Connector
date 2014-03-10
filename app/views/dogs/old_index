@@ -1,0 +1,77 @@
+/     %h1 All Dogs
+
+/     / %h1 Lost
+/     / %table
+/     /   %tr
+/     /     %th Name
+/     /     %th Breed
+/     /     %th Age
+/     /     %th Features
+/     /     %th Unique features
+/     /     %th Is lost
+/     /     %th Is found
+/     /     %th Has returned
+/     /     %th Hero
+/     /     %th Date found
+/     /     %th Location
+/     /     %th
+/     /     %th
+/     /     %th
+
+/ - @dogs.is_lost.each do |dog|
+/   %tr
+/     %td= dog.name
+/     %td= dog.breed
+/     %td= dog.age
+/     %td= dog.features
+/     %td= dog.unique_features
+/     %td= dog.is_lost
+/     /       / %td= dog.is_found
+/     /       / %td= dog.has_returned
+/     /       / %td= dog.hero_id
+/     /       %td= dog.date_found
+/     /       %td= dog.location
+/     /       %td= link_to 'Show', dog
+/     /       %td= link_to 'Edit', edit_dog_path(dog)
+/     /       %td= link_to 'Destroy', dog, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+/ .row
+/   .12-small.columns
+/     %h1 Found
+/     %table
+/       %tr
+/         %th Name
+/         %th Breed
+/         %th Age
+/         %th Features
+/         %th Unique features
+/         / %th Is lost
+/         / %th Is found
+/         / %th Has returned
+/         / %th Hero
+/         %th Date found
+/         %th Location
+/         %th
+/         %th
+/         %th
+
+/       - @dogs.each do |dog|
+/         %tr
+/           %td= dog.name
+/           %td= dog.breed
+/           %td= dog.age
+/           %td= dog.features
+/           %td= dog.unique_features
+/           / %td= dog.is_lost
+/           / %td= dog.is_found
+/           / %td= dog.has_returned
+/           / %td= dog.hero_id
+/           %td= dog.date_found
+/           %td= dog.location
+/           %td= link_to 'Show', dog
+/           / %td= link_to 'Edit', edit_dog_path(dog)
+/           / %td= link_to 'Destroy', dog, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+/ %br
+
+/ = link_to 'New Dog', new_dog_path

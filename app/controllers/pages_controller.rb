@@ -1,9 +1,11 @@
 class PagesController < ApplicationController
+  skip_before_filter :authenticate_user!
+
   def landing
   end
 
-  def home
-  end
+  # def home
+  # end
 
   def help
   end
@@ -23,6 +25,6 @@ class PagesController < ApplicationController
   def dev
   end
 
-  def dashboard
-  end
+  # def dashboard
+  # end
 end

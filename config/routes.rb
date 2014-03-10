@@ -9,9 +9,11 @@ CanineConnector::Application.routes.draw do
   # get "pages/dev"
   # get "pages/dashboard"
 
+  root to: "dogs#index"
+
   get '/',        to: 'pages#landing'
-  get '/home',    to: 'pages#home'
-  get '/dashboard',    to: 'pages#dashboard'
+  # get '/home',    to: 'pages#home'
+  # get '/dashboard',    to: 'pages#dashboard'
   get '/help',    to: 'pages#help'
   get '/about',   to: 'pages#about'
   get '/terms',   to: 'pages#terms'

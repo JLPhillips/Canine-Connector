@@ -1,9 +1,10 @@
 .row
   .12-small.columns
-    %h1 New dog
+    .new-dog-form
+      %h1 New Dog
 
-.row
-  .12-small.columns
-    = render 'form'
+      = render 'form'
 
-  = link_to 'Back', dogs_path
+      = link_to 'Back', dogs_path
+    .new-dog-dog.show-for-medium-up
+      = image_tag "dog10.png"

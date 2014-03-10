@@ -20,11 +20,13 @@ class DogsController < InheritedResources::Base
       :responds_to,
       :breed,
       :age,
+      :picture,
       :features,
       :unique_features,
       :is_lost,
       :is_found,
       :date_found,
+      :date_lost,
       :location,
       :user_id)
   end

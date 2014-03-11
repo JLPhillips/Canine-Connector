@@ -5,6 +5,8 @@
       #your-dogs-main
         .index-dog-right.show-for-medium-up
           = image_tag "dog17.png"
+        .index-dog-left.show-for-medium-up
+          = image_tag "ball.png"
         #your-dogs-lost
           %h1.recent-title Lost
           - current_user.dogs.each do |dog|

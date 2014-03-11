@@ -43,13 +43,15 @@ class DogsController < InheritedResources::Base
       :picture,
       :features,
       :unique_features,
+      :has_returned,
       :is_lost,
       :is_found,
       :date_found,
       :date_lost,
       :location,
       :id,
-      :user_id,)
+      :user_id,
+      :gender)
   end
 
 end

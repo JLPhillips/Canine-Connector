@@ -9,11 +9,12 @@ CanineConnector::Application.routes.draw do
   # get "static/cookies_page"
 
   # get "/dogs/:id/send"
-  get "/dogs/your_dogs"
+  # get "/dogs/your_dogs"
 
   # get '/',        to: 'static#landing_page'
   # get '/home',    to: 'static#landing_page'
   # match '/',    to: 'static#landing_page', via: "get"
+  match '/your_dogs',    to: 'dogs#your_dogs', via: "get"
   match '/help',    to: 'static#help_page', via: "get"
   match '/about',   to: 'static#about_page', via: "get"
   match '/terms'  => 'static#terms_page', via: "get"

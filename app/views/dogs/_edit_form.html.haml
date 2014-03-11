@@ -24,6 +24,11 @@
     = f.select(:age, ["Select Age", "Puppy", "Young", "Adult", "Old"])
     %br/
     %br/
+  .field
+    = f.label "Edit the gender?"
+    = f.select(:gender, ["Select Gender", "Male", "Female"])
+    %br/
+    %br/
     / = f.text_field :age
   .field
     = f.label "Change the features?"

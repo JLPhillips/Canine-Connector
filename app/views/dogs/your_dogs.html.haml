@@ -1,9 +1,30 @@
 .row
   .12-small.columns
+    %h1 Your Dogs
     - if user_signed_in?
-      %h1 Your Dogs
-      - current_user.dogs.each do |dog|
-        %ul
-          %li= dog.name
+      #home-page-main
+        #home-page-lost
+          %h1.recent-title Lost
+          - current_user.dogs.each do |dog|
+            - if dog.is_lost?
+              .mini-dog
+                .dog-picture
+                  = image_tag dog.picture
+                .dog-specs
+                  %h1.dogname.show-for-medium-up= link_to dog.name, dog_path(dog)
+                  %h2.dogbreed.show-for-medium-up= dog.breed
+                  %h3.dogage.show-for-medium-up= dog.age
+
+        #home-page-found
+          %h1.recent-title Found
+          - current_user.dogs.each do |dog|
+            -if dog.is_found?
+              .mini-dog
+                .dog-picture
+                  = image_tag dog.picture
+                .dog-specs
+                  %h1.dogname.show-for-medium-up= link_to dog.name, dog_path(dog)
+                  %h2.dogbreed.show-for-medium-up= dog.breed
+                  %h3.dogage.show-for-medium-up= dog.age
     - else
-    %h1 HAHAHAHA
+      %h1 Hot banana, squash banana.

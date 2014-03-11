@@ -60,6 +60,7 @@ body {
     text-decoration: none;
     color: white;
     display: block;
+    line-height: 45px;
 
     &:hover {
       color: gray;
@@ -176,25 +177,29 @@ body {
         color: #00741d;
       }
 
-      .age {
+      .gender {
         color: #9c0a0a;
       }
 
-      .responds-to {
+      .age {
         color: #4680ac;
       }
 
-      .location {
+      .responds-to {
         color: #ff7f00;
+      }
+
+      .location {
+        color: #00741d;
 
       }
       .date {
-        color: #00741d !important;
+        color: #9c0a0a !important;
       }
 
       .unique-features {
         margin-top: -15px;
-        color: #9c0a0a !important;
+        color: #4680ac !important;
       }
     }
   }

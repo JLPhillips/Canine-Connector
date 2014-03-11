@@ -53,13 +53,13 @@ body {
 
     .index-dog-right {
       img {
-        height: 400px;
+        height: 220px;
         float: right;
         width: auto;
         position: absolute;
         top: 280px;
         // right: -160px;
-        right: -110px;
+        right: -150px;
       }
     }
 
@@ -118,8 +118,12 @@ body {
             height: 100px;
             width: 138px;
             float: left;
+            position: relative;
+            z-index: 10;
             // @include border_radius;
-
+            &:hover {
+              @include box_shadow;
+            }
           }
         }
 
@@ -166,6 +170,14 @@ body {
   }
 
 // -----------------------------------------------[DOG PROFILE]----------------->
+
+  .back-arrow {
+    height: 40px;
+    width: 60px;
+    position: absolute;
+    top: 40px;
+    left: 150px;
+  }
 
   #myModal {
     background: url('paper3.jpg') center no-repeat;
@@ -321,17 +333,21 @@ body {
         color: #ff7f00;
       }
 
-      .location {
+      .features {
         color: #00741d;
+      }
+
+      .location {
+        color: #9c0a0a;
 
       }
       .date {
-        color: #9c0a0a !important;
+        color: #4680ac !important;
       }
 
       .unique-features {
         margin-top: -15px;
-        color: #4680ac !important;
+        color: #ff7f00 !important;
       }
     }
   }
@@ -344,7 +360,7 @@ body {
     position: relative;
     left: 65px;
     margin: auto;
-    padding-top: 50px;
+    padding-top: 30px;
     font-family: "Love Ya Like A Sister", cursive;
 
     input:not(#dog_picture) {
@@ -510,7 +526,12 @@ body {
             height: 100px;
             width: 138px;
             float: left;
+            position: relative;
+            z-index: 10;
             // @include border_radius;
+            &:hover {
+              @include box_shadow;
+            }
 
           }
         }

@@ -9,7 +9,7 @@
             - if dog.is_lost?
               .mini-dog
                 .dog-picture
-                  = image_tag dog.picture
+                  = link_to(image_tag(dog.picture, :alt => dog.name), dog_path(dog))
                 .dog-specs
                   %h1.dogname.show-for-medium-up= link_to dog.name, dog_path(dog)
                   %h2.dogbreed.show-for-medium-up= dog.breed
@@ -27,7 +27,7 @@
             -if dog.is_found?
               .mini-dog
                 .dog-picture
-                  = image_tag dog.picture
+                  = link_to(image_tag(dog.picture, :alt => dog.name), dog_path(dog))
                 .dog-specs
                   %h1.dogname.show-for-medium-up= link_to dog.name, dog_path(dog)
                   %h2.dogbreed.show-for-medium-up= dog.breed

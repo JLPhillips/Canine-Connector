@@ -12,13 +12,13 @@
 
   .field
     = f.label "Did it have a name tag? If not, just give it a name."
-    = f.text_field :name, placeholder: "Name", required: true
+    = f.text_field :name, placeholder: "Fido", required: true
   .field
     = f.label "What are some names it responds to? (Seperate by commas!)"
-    = f.text_field :responds_to, placeholder: "Names It Responds To", required: true
+    = f.text_field :responds_to, placeholder: "Itchy, Scratchy, Sam", required: true
   .field
     = f.label "What breed does it look like? If more than one, say Mix, or Mutt."
-    = f.text_field :breed, placeholder: "Breed", required: true
+    = f.text_field :breed, placeholder: "Collie Mix", required: true
   .field
     = f.label "Choose an age range from the dropdown below!"
     = f.select(:age, ["Select Age", "Puppy", "Young", "Adult", "Old"])
@@ -33,10 +33,10 @@
   .field
     = f.label "What are some quick features? Seperate different ones by commas!"
     / # = f.select(:features,  ["Select a Feature", "Head", "Back", "Tail", ])
-    = f.text_field :features, placeholder: "Feature Tags", required: true
+    = f.text_field :features, placeholder: "Black, White Spot, Tall, Smelly", required: true
   .field
-    = f.label "Now write a short description with more detailed features."
-    = f.text_area :unique_features, required: true
+    = f.label "Now write a longer description with more detailed features."
+    = f.text_area :unique_features, placeholder: "He doesn't like shoes, or at least, mine.", required: true
     %br/
   .field
     = f.label "Check here if this is a dog you have lost and are looking for."
@@ -54,7 +54,7 @@
     %br/
     %br/
   .field
-    = f.label "Please give a general location you lost/found the dog, like, Vandy!"
-    = f.text_field :location, placeholder: "Location Tags", required: true
+    = f.label "Please give a general location you lost/found the dog."
+    = f.text_field :location, placeholder: "Downtown Franklin", required: true
   .actions
     = f.submit 'Post Dog!'

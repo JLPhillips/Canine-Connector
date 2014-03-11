@@ -3,13 +3,15 @@
     %h1.your-dogs Your Dogs
     - if user_signed_in?
       #your-dogs-main
+        .index-dog-right.show-for-medium-up
+          = image_tag "dog17.png"
         #your-dogs-lost
           %h1.recent-title Lost
           - current_user.dogs.each do |dog|
             - if dog.is_lost? && dog.has_returned? == false
               .mini-dog
                 .dog-picture
-                  = image_tag dog.picture
+                  = link_to(image_tag(dog.picture, :alt => dog.name), dog_path(dog))
                 .dog-specs
                   %h1.dogname.show-for-medium-up= link_to dog.name, dog_path(dog)
                   %h2.dogbreed.show-for-medium-up= dog.breed
@@ -21,11 +23,12 @@
             -if dog.is_found? && dog.has_returned? == false
               .mini-dog
                 .dog-picture
-                  = image_tag dog.picture
+                  = link_to(image_tag(dog.picture, :alt => dog.name), dog_path(dog))
                 .dog-specs
                   %h1.dogname.show-for-medium-up= link_to dog.name, dog_path(dog)
                   %h2.dogbreed.show-for-medium-up= dog.breed
                   %h3.dogage.show-for-medium-up= dog.age
+
       / #your-dogs-main
       /   #your-dogs-returned
       /     %h1.recent-title Returned to Master!
@@ -39,5 +42,3 @@
       /             %h2.dogbreed.show-for-medium-up= dog.breed
       /             %h3.dogage.show-for-medium-up= dog.age
 
-    - else
-      %h1 Hot banana, squash banana.

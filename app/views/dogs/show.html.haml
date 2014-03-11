@@ -8,6 +8,8 @@
       %a.close-reveal-modal ×
 .row
   .12-small.columns
+    / .back-arrow
+    /   = image_tag "back.png"
     .dog-profile-container
       .dogatar
         = image_tag @dog.picture
@@ -18,6 +20,7 @@
         %h2.age= @dog.age
         %h2.responds-to Also responds to
         %h2.responds-to= @dog.responds_to
+        %h2.features= @dog.features
         - if @dog.is_lost?
           %h2.location Last seen around
           %h2.location= @dog.location

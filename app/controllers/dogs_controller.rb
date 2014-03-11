@@ -1,5 +1,5 @@
 class DogsController < InheritedResources::Base
-  before_action :user_dog, :set_item, only: [:show, :update]
+  before_action :set_item, only: [:show, :update]
 
 
 

@@ -28,10 +28,14 @@
         - elsif @dog.is_found?
           %h2.date On
           %h2.date= @dog.date_found
-        %h3= @dog.unique_features
-      .the-rest
+        %h3.unique-features= @dog.unique_features
+        .user-tag
+          %h2 Posted by:
+          .user-image-name
+            = image_tag @dog.user.user_image
+            %h2= @dog.user.user_name
 
-      %p#notice= notice
+      / %p#notice= notice
 
     - if @dog.is_lost? && @dog.user != current_user
       / %h1.think= link_to "I think I've found this dog.", "#"

@@ -109,6 +109,36 @@ body {
     background-size: cover;
     @include box_shadow;
 
+    .user-tag {
+      margin: auto;
+      position: relative;
+      top: 5px;
+        h2 {
+          color: black;
+        }
+      .user-image-name {
+        height: 40px;
+        width: 200px;
+        margin: auto;
+        margin-bottom: 20px;
+        margin-top: -20px;
+
+        h2 {
+          color: black;
+          float: left;
+          position: relative;
+          top: 25px;
+          left: 10px;
+        }
+
+        img {
+          height: 40px;
+          width: 40px;
+          float: left;
+          @include border_radius;
+        }
+      }
+    }
 
     .dogatar {
       padding-top: 20px;
@@ -162,7 +192,7 @@ body {
         color: #00741d !important;
       }
 
-      h3 {
+      .unique-features {
         margin-top: -15px;
         color: #9c0a0a !important;
       }

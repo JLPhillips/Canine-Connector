@@ -1,0 +1,9 @@
+.row
+  .12-small.columns
+    - if user_signed_in?
+      %h1 Your Dogs
+      - current_user.dogs.each do |dog|
+        %ul
+          %li= dog.name
+    - else
+      %h1 HAHAHAHA

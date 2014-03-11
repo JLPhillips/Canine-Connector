@@ -122,7 +122,7 @@ body {
         height: auto;
         width: 100%;
         margin: auto;
-        @include border_radius;
+        // @include border_radius;
       }
     }
 
@@ -343,7 +343,7 @@ body {
             height: 100px;
             width: 138px;
             float: left;
-            @include border_radius;
+            // @include border_radius;
 
           }
         }

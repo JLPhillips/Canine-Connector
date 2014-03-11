@@ -1,9 +1,11 @@
 class StaticController < ApplicationController
+  skip_before_action :authenticate_user!
+
   def about_page
   end
 
-  def landing_page
-  end
+  # def landing_page
+  # end
 
   def dev_page
   end

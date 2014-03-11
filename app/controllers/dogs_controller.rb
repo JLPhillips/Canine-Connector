@@ -1,5 +1,8 @@
 class DogsController < InheritedResources::Base
-  before_action :set_item, only: [:show, :update]
+  before_action :user_dog, :set_item, only: [:show, :update]
+
+
+
 
   def create
     @dog = current_user.dogs.new(dog_params)
@@ -17,6 +20,13 @@ class DogsController < InheritedResources::Base
     @dog.update(dog_params)
     redirect_to @dog
   end
+
+
+  # def send(dog)
+  #   @dog = Dog.find(params[:id])
+  #   DogMailer.dog_alert(@dog, current_user).deliver
+  #   render :nothing => true
+  # end
 
   private
 

@@ -7,10 +7,13 @@ CanineConnector::Application.routes.draw do
   # get "static/help_page"
   # get "static/terms_page"
   # get "static/cookies_page"
-  # get "static/home_page"
+
+  # get "/dogs/:id/send"
+  get "/dogs/your_dogs"
 
   # get '/',        to: 'static#landing_page'
   # get '/home',    to: 'static#landing_page'
+  # match '/',    to: 'static#landing_page', via: "get"
   match '/help',    to: 'static#help_page', via: "get"
   match '/about',   to: 'static#about_page', via: "get"
   match '/terms'  => 'static#terms_page', via: "get"
@@ -22,7 +25,14 @@ CanineConnector::Application.routes.draw do
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  resources :dogs
+  # resources :dogs
+
+resources :dogs do
+  member do
+    get :dog_alert
+  end
+end
+
 
   devise_for :users
 

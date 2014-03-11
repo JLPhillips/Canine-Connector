@@ -1,38 +1,41 @@
 - provide(:title, "Dogs")
 .row
   .12-small.columns
-    #home-page-main
-      #home-page-lost
-        %h1.recent-title Recently Lost
-        - @dogs.each do |dog|
-          - if dog.is_lost?
-            .mini-dog
-              .dog-picture
-                = image_tag dog.picture
-              .dog-specs
-                %h1.dogname.show-for-medium-up= link_to dog.name, dog_path(dog)
-                %h2.dogbreed.show-for-medium-up= dog.breed
-                %h3.dogage.show-for-medium-up= dog.age
+    - if user_signed_in?
+      #home-page-main
+        #home-page-lost
+          %h1.recent-title Recently Lost
+          - @dogs.each do |dog|
+            - if dog.is_lost?
+              .mini-dog
+                .dog-picture
+                  = image_tag dog.picture
+                .dog-specs
+                  %h1.dogname.show-for-medium-up= link_to dog.name, dog_path(dog)
+                  %h2.dogbreed.show-for-medium-up= dog.breed
+                  %h3.dogage.show-for-medium-up= dog.age
 
-              / %li= dog.features
-              / %li= dog.date_found
-              / %li= dog.is_lost
-              / %li= dog.is_found
-        %h2.see-all= link_to "See All Lost", "#"
+                / %li= dog.features
+                / %li= dog.date_found
+                / %li= dog.is_lost
+                / %li= dog.is_found
+          %h2.see-all= link_to "See All Lost", "#"
 
-      #home-page-found
-        %h1.recent-title Recently Found
-        - @dogs.each do |dog|
-          -if dog.is_found?
-            .mini-dog
-              .dog-picture
-                = image_tag dog.picture
-              .dog-specs
-                %h1.dogname.show-for-medium-up= link_to dog.name, dog_path(dog)
-                %h2.dogbreed.show-for-medium-up= dog.breed
-                %h3.dogage.show-for-medium-up= dog.age
-        %h2.see-all= link_to "See All Found", "#"
-      .index-dog-right.show-for-medium-up
-        = image_tag "dog6.png"
-      .index-dog-left.show-for-medium-up
-        = image_tag "dog4.png"
+        #home-page-found
+          %h1.recent-title Recently Found
+          - @dogs.each do |dog|
+            -if dog.is_found?
+              .mini-dog
+                .dog-picture
+                  = image_tag dog.picture
+                .dog-specs
+                  %h1.dogname.show-for-medium-up= link_to dog.name, dog_path(dog)
+                  %h2.dogbreed.show-for-medium-up= dog.breed
+                  %h3.dogage.show-for-medium-up= dog.age
+          %h2.see-all= link_to "See All Found", "#"
+        .index-dog-right.show-for-medium-up
+          = image_tag "dog6.png"
+        .index-dog-left.show-for-medium-up
+          = image_tag "dog4.png"
+    - else
+      %h1 HAHAHAHAHAHAHAHA

@@ -19,7 +19,7 @@
                 / %li= dog.date_found
                 / %li= dog.is_lost
                 / %li= dog.is_found
-          %h2.see-all= link_to "See All Lost", "#"
+          %h2.see-all= link_to "See All Lost", all_lost_path
 
         #home-page-found
           %h1.recent-title Recently Found
@@ -32,7 +32,7 @@
                   %h1.dogname.show-for-medium-up= link_to dog.name, dog_path(dog)
                   %h2.dogbreed.show-for-medium-up= dog.breed
                   %h3.dogage.show-for-medium-up= dog.age
-          %h2.see-all= link_to "See All Found", "#"
+          %h2.see-all= link_to "See All Found", all_found_path
         .index-dog-right.show-for-medium-up
           = image_tag "dog6.png"
         .index-dog-left.show-for-medium-up

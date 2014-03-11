@@ -45,9 +45,6 @@
     = f.label "...or is it still found?"
     = f.check_box :is_found
   / .field
-  /   = f.label :has_returned
-  /   = f.check_box :has_returned
-  / .field
   /   = f.label :hero_id
   /   = f.number_field :hero_id
   .field
@@ -59,5 +56,8 @@
   .field
     = f.label "Change the location?"
     = f.text_field :location, placeholder: "Location Tags"
+  .field
+    = f.label "Has this dog been returned to its master?"
+    = f.check_box :has_returned
   .actions
     = f.submit 'Post Dog!'

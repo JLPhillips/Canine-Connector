@@ -1,12 +1,12 @@
 .row
   .12-small.columns
-    %h1 Your Dogs
+    %h1.your-dogs Your Dogs
     - if user_signed_in?
-      #home-page-main
-        #home-page-lost
+      #your-dogs-main
+        #your-dogs-lost
           %h1.recent-title Lost
           - current_user.dogs.each do |dog|
-            - if dog.is_lost?
+            - if dog.is_lost? && dog.has_returned? == false
               .mini-dog
                 .dog-picture
                   = image_tag dog.picture
@@ -15,10 +15,10 @@
                   %h2.dogbreed.show-for-medium-up= dog.breed
                   %h3.dogage.show-for-medium-up= dog.age
 
-        #home-page-found
+        #your-dogs-found
           %h1.recent-title Found
           - current_user.dogs.each do |dog|
-            -if dog.is_found?
+            -if dog.is_found? && dog.has_returned? == false
               .mini-dog
                 .dog-picture
                   = image_tag dog.picture
@@ -26,5 +26,18 @@
                   %h1.dogname.show-for-medium-up= link_to dog.name, dog_path(dog)
                   %h2.dogbreed.show-for-medium-up= dog.breed
                   %h3.dogage.show-for-medium-up= dog.age
+      / #your-dogs-main
+      /   #your-dogs-returned
+      /     %h1.recent-title Returned to Master!
+      /     - current_user.dogs.each do |dog|
+      /       - if dog.has_returned?
+      /         .mini-dog
+      /           .dog-picture
+      /             = image_tag dog.picture
+      /           .dog-specs
+      /             %h1.dogname.show-for-medium-up= link_to dog.name, dog_path(dog)
+      /             %h2.dogbreed.show-for-medium-up= dog.breed
+      /             %h3.dogage.show-for-medium-up= dog.age
+
     - else
       %h1 Hot banana, squash banana.

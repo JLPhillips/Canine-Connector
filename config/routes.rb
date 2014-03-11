@@ -14,6 +14,8 @@ CanineConnector::Application.routes.draw do
   # get '/',        to: 'static#landing_page'
   # get '/home',    to: 'static#landing_page'
   # match '/',    to: 'static#landing_page', via: "get"
+  match '/all_lost',    to: 'dogs#all_lost', via: "get"
+  match '/all_found',    to: 'dogs#all_found', via: "get"
   match '/your_dogs',    to: 'dogs#your_dogs', via: "get"
   match '/help',    to: 'static#help_page', via: "get"
   match '/about',   to: 'static#about_page', via: "get"

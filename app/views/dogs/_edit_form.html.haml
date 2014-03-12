@@ -14,11 +14,17 @@
     = f.label "Change the name?"
     = f.text_field :name, placeholder: "Name"
   .field
-    = f.label "Change the names it responds to?"
+    = f.label "Change the names it responds to? (Seperate each by a comma!)"
     = f.text_field :responds_to, placeholder: "Names It Responds To"
   .field
     = f.label "Change the breed?"
     = f.text_field :breed, placeholder: "Breed"
+  .field
+    = f.label "Change the main color of the fur?"
+    = f.text_field :main_color, placeholder: "Black", required: true
+  .field
+    = f.label "Change the other colors of the dog's fur? (Seperate each by a comma!)"
+    = f.text_field :secondary_colors, placeholder: "Brown, White, Blue", required: true
   .field
     = f.label "Change the age?"
     = f.select(:age, ["Select Age", "Puppy", "Young", "Adult", "Old"])
@@ -31,7 +37,7 @@
     %br/
     / = f.text_field :age
   .field
-    = f.label "Change the features?"
+    = f.label "Change the features? (Seperate each by a comma!)"
     / # = f.select(:features,  ["Select a Feature", "Head", "Back", "Tail", ])
     = f.text_field :features, placeholder: "Feature Tags"
   .field

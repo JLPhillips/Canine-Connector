@@ -6,7 +6,7 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: cc_development
+  database: canineconnector_development
   pool: 5
   username:
   password:
@@ -18,7 +18,7 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  database: cc_test
+  database: canineconnector_test
   pool: 5
   username:
   password:
@@ -27,7 +27,7 @@ test:
 production:
   adapter: postgresql
   encoding: unicode
-  database: cc_production
+  database: canineconnector_production
   pool: 5
   username:
   password:

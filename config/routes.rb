@@ -21,7 +21,7 @@ CanineConnector::Application.routes.draw do
   match '/about',   to: 'static#about_page', via: "get"
   match '/terms'  => 'static#terms_page', via: "get"
   match '/privacy', to: 'static#privacy_page', via: "get"
-  match '/cookies', to: 'static#cookies_page', via: "get"
+  match '/contact', to: 'static#contact_page', via: "get"
   match '/dev',      to: 'static#dev_page', via: "get"
 
   root to: "dogs#index"

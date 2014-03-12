@@ -19,7 +19,7 @@ class StaticController < ApplicationController
   def terms_page
   end
 
-  def cookies_page
+  def contact_page
   end
 
   def home_page

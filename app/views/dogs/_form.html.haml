@@ -14,7 +14,7 @@
     = f.label "Did it have a name tag? If not, just give it a name."
     = f.text_field :name, placeholder: "Fido", required: true
   .field
-    = f.label "What are some words or names it responds to? (Seperate each by a comma!)"
+    = f.label "What are some words or names it responds to? (Separate each by a comma!)"
     = f.text_field :responds_to, placeholder: "Itchy, Scratchy, Sam", required: true
   .field
     = f.label "What breed does it look like? If more than one, say Mix, or Mutt."
@@ -23,7 +23,7 @@
     = f.label "What is the most dominant color of the dog's fur?"
     = f.text_field :main_color, placeholder: "Black", required: true
   .field
-    = f.label "What are the other colors of the dog's fur? (Seperate each by a comma!)"
+    = f.label "What are the other colors of the dog's fur? (Separate each by a comma!)"
     = f.text_field :secondary_colors, placeholder: "Brown, White, Blue", required: true
   .field
     = f.label "Choose an age range from the dropdown below!"
@@ -37,7 +37,7 @@
     %br/
     / = f.text_field :age
   .field
-    = f.label "What are some quick features? Seperate different ones by commas!"
+    = f.label "What are some quick features? Separate different ones by commas!"
     / # = f.select(:features,  ["Select a Feature", "Head", "Back", "Tail", ])
     = f.text_field :features, placeholder: "Black, White Spot, Tall, Smelly", required: true
   .field

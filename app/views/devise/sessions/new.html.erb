@@ -1,3 +1,4 @@
+<% provide(:title, "Sign In") %>
 <div class="row">
   <div class="12-small columns">
     <div class="sign-in-form">
@@ -20,5 +21,21 @@
         <%= image_tag "dog5.png" %>
       </div>
     </div>
+    <footer class="footer">
+      <div class="footer-logo">
+        <%= image_tag "cc-logo-rough.png" %>
+      </div>
+      <nav>
+        <ul>
+          <li><%= link_to "About",    about_path %></li>
+          <li><%= link_to "Help",     help_path %></li>
+          <li><%= link_to "Terms",    terms_path %></li>
+          <li><%= link_to "Privacy",  privacy_path %></li>
+          <li><%= link_to "Contact",  contact_path %></li>
+          <li><%= link_to "Dev",      dev_path %></li>
+        </ul>
+      </nav>
+      <small>© 2014 Canine Connector</small>
+    </footer>
   </div>
 </div>

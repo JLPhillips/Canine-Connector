@@ -1,4 +1,21 @@
-= form_tag dogs_path, method: :get do
-  %p
-    = text_field_tag :search, params[:search]
-    = submit_tag "Search", name: nil
+- provide(:title, "Find a Dog")
+.row
+  .12-small.columns
+    %h1.all-title Find a Dog
+    - if user_signed_in?
+      #all-main
+        #all-sub
+          = form_tag search_path, method: :get do
+            %p
+              = text_field_tag :query, params[:query], autofocus: true, placeholder: "ex. White Dachshund, or Black Husky"
+              = submit_tag "Search", name: nil
+          - @dogs.each do |dog|
+            / - if dog.is_lost? && dog.has_returned? == false
+            .mini-dog
+              .dog-picture
+                = link_to(image_tag(dog.picture, :alt => dog.name), dog_path(dog))
+              .dog-specs
+                %h1.dogname.show-for-medium-up= link_to dog.name, dog_path(dog)
+                %h2.dogbreed.show-for-medium-up= dog.breed
+                %h3.dogage.show-for-medium-up= dog.age
+          = paginate @dogs

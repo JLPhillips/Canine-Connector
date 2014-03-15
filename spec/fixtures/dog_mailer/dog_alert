@@ -1,15 +1,22 @@
-= @dog.user.first_name,
-
-You are receiving this dog alert because @current_user.user_name believes they have either found your dog, or is the owner of the one you have found. Their contact information is as follows:
-
-= @current_user.email
-= @current_user.phone
-
-You have probably also been texted via our Dog Alert texts if you chose to provide your phone number.
-
-Please use this email as a springboard for communication and good luck!
-
-
-
--Canine Connector
-"Finding Fido, Faster."
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+%html
+  %head
+    %meta{content: "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+  %body
+    %h1
+      #{h @dog.user.first_name},
+    %p
+      You are receiving this dog alert about #{@dog.name} because #{@current_user.user_name} believes they have either found your dog, or is the owner of the one you have posted as found. Their contact information is as follows:
+      %br/
+      #{@current_user.email}
+      - if @current_user != nil
+        #{@current_user.phone}
+    %p
+      You have probably also been texted via our Dog Alert texting, if you chose to provide your phone number.
+      %br/
+      Please use this email as a springboard for communication and good luck!
+      %br/
+      %br/
+      %br/
+      Canine Connector
+      "Finding Fido, Faster."

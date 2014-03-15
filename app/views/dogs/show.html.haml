@@ -1,8 +1,11 @@
+- provide(:title, "Profile for #{@dog.name}")
 .row
   .12-small.columns
     #myModal.reveal-modal{"data-reveal" => ""}
       %h2 Click below to initiate contact with this user.
       %p.lead This will notify the user by email and text (if applicable) to immediately start the conversation.
+      .conversation-starter
+        = button_to 'Initiate Conversation', dog_alert_dog_path
       / # = link_to 'Deliver', send_dog_path(@dog, current_user)
       %p.lead Good luck!
       %a.close-reveal-modal ×
@@ -11,6 +14,9 @@
     / .back-arrow
     /   = image_tag "back.png"
     .dog-profile-container
+      -if @dog.has_returned? == true
+        .has-returned
+          %h1 Returned to Master!
       .dogatar
         = image_tag @dog.picture
       .dog-stats
@@ -47,7 +53,7 @@
       %a.think{"data-reveal" => "", "data-reveal-id" => "myModal"} I think I've found this dog.
     -elsif @dog.is_found? && @dog.user != current_user
       %a.think{"data-reveal" => "", "data-reveal-id" => "myModal"} I think this is my dog.
-      / %h1.think= link_to "I think this is my dog.", "#"
+      / # %h1.think= link_to "I think this is my dog.", "#"
 
     - if @dog.user == current_user
       %ul.controls-ul

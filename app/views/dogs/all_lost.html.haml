@@ -1,3 +1,4 @@
+- provide(:title, "All Lost")
 .row
   .12-small.columns
     %h1.all-title All Lost
@@ -5,15 +6,16 @@
       #all-main
         .index-dog-right.show-for-medium-up
           = image_tag "dog17.png"
-        / .index-dog-left.show-for-medium-up
-        /   = image_tag "ball.png"
+        .index-dog-left.show-for-medium-up
+          = image_tag "ball.png"
         #all-sub
-          - Dog.all.each do |dog|
-            - if dog.is_lost? && dog.has_returned? == false
-              .mini-dog
-                .dog-picture
-                  = link_to(image_tag(dog.picture, :alt => dog.name), dog_path(dog))
-                .dog-specs
-                  %h1.dogname.show-for-medium-up= link_to dog.name, dog_path(dog)
-                  %h2.dogbreed.show-for-medium-up= dog.breed
-                  %h3.dogage.show-for-medium-up= dog.age
+          - @dogs.all.each do |dog|
+            / - if dog.is_lost? && dog.has_returned? == false
+            .mini-dog
+              .dog-picture
+                = link_to(image_tag(dog.picture, :alt => dog.name), dog_path(dog))
+              .dog-specs
+                %h1.dogname.show-for-medium-up= link_to dog.name, dog_path(dog)
+                %h2.dogbreed.show-for-medium-up= dog.breed
+                %h3.dogage.show-for-medium-up= dog.age
+          = paginate @dogs

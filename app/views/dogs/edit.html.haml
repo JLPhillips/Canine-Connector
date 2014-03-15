@@ -1,7 +1,13 @@
-%h1 Editing dog
+- provide(:title, "Edit Dog")
+.12-small.columns
+  .new-dog-form
+    %h1 Editing dog
 
-= render 'edit_form'
+    = render 'edit_form'
 
-= link_to 'Show', @dog
-\|
-= link_to 'Back', dogs_path
+    = link_to 'Show', @dog
+    \|
+    = link_to 'Back', dogs_path
+
+  .new-dog-dog.show-for-medium-up
+    = image_tag "dog10.png"

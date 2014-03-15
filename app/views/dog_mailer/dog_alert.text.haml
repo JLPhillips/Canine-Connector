@@ -1,3 +1,18 @@
-DogMailer#dog_alert
-
-= @greeting + ", find me in app/views/dog_mailer/dog_alert.text.haml"
+Dear #{@dog.user.first_name},
+#{@space}
+You are receiving this dog alert about #{@dog.name} because CC user #{@current_user.user_name} believes they might #{@plug} Their contact information is as follows:
+#{@space}
+#{@space}
+Email: #{@current_user.email}
+#{@current_user_phone}
+#{@space}
+You have probably also been texted via our Dog Alert texting, if you chose to provide your phone number.
+#{@space}
+Please use this email as a springboard for communication.
+#{@space}
+Good luck!
+#{@space}
+#{@space}
+Canine Connector
+#{@space}
+"Find Family, Faster."

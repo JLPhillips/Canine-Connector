@@ -1,19 +1,65 @@
-- provide(:title, "Dogs")
-.row
-  .12-small.columns
-    - if user_signed_in?
+- if user_signed_in? == false
+  - provide(:title, "Find Family, Faster")
+  .landing-container
+    .row
+      .12-small.columns
+        .landing-main
+          / - flash.each do |key, value|
+          /   %div{class: "alert alert-#{key}"}= value
+          / .landing-block
+          / .landing-plug
+          .landing-left
+            %h1
+              Welcome to
+              %span Canine Connector
+            %h2.show-for-medium-up
+              Building a stronger community of dog lovers to
+              %br/
+              help
+              %span find
+              those missing
+              %span family
+              members,
+              %span faster.
+          / .landing-right
+          / .landing-right-top
+          / .landing-right-bottom
+          / .landing-plug
+          / .landing-mini-block
+
+
+
+    .footer-box
+      %footer.footer
+        .footer-logo
+          = image_tag "cc-logo-rough.png"
+        %nav
+          %ul
+            %li= link_to "About",   about_path
+            %li= link_to "Help",    help_path
+            %li= link_to "Terms",   terms_path
+            %li= link_to "Privacy", privacy_path
+            %li= link_to "Contact", contact_path
+            %li= link_to "Dev", dev_path
+        %small © 2014 Canine Connector
+
+
+-else
+  - provide(:title, "Dogs")
+  .row
+    .12-small.columns
       #home-page-main
         #home-page-lost
           %h1.recent-title Recently Lost
-          - @dogs.each do |dog|
-            - if dog.is_lost?
-              .mini-dog
-                .dog-picture
-                  = link_to(image_tag(dog.picture, :alt => dog.name), dog_path(dog))
-                .dog-specs
-                  %h1.dogname.show-for-medium-up= link_to dog.name, dog_path(dog)
-                  %h2.dogbreed.show-for-medium-up= dog.breed
-                  %h3.dogage.show-for-medium-up= dog.age
+          - Dog.where(is_lost: true).where(has_returned: [nil, false]).order("created_at DESC").take(4).each do |dog|
+            / # - if dog.is_lost? && dog.has_returned? == nil
+            .mini-dog
+              .dog-picture
+                = link_to(image_tag(dog.picture, :alt => dog.name), dog_path(dog))
+              .dog-specs
+                %h1.dogname.show-for-medium-up= link_to dog.name, dog_path(dog)
+                %h2.dogbreed.show-for-medium-up= dog.breed
+                %h3.dogage.show-for-medium-up= dog.age
 
                 / %li= dog.features
                 / %li= dog.date_found
@@ -23,19 +69,19 @@
 
         #home-page-found
           %h1.recent-title Recently Found
-          - @dogs.each do |dog|
-            -if dog.is_found?
-              .mini-dog
-                .dog-picture
-                  = link_to(image_tag(dog.picture, :alt => dog.name), dog_path(dog))
-                .dog-specs
-                  %h1.dogname.show-for-medium-up= link_to dog.name, dog_path(dog)
-                  %h2.dogbreed.show-for-medium-up= dog.breed
-                  %h3.dogage.show-for-medium-up= dog.age
+          - Dog.where(is_found: true).where(has_returned: [nil, false]).order("created_at DESC").take(4).each do |dog|
+            / -if dog.is_found? && dog.has_returned? == nil
+            .mini-dog
+              .dog-picture
+                = link_to(image_tag(dog.picture, :alt => dog.name), dog_path(dog))
+              .dog-specs
+                %h1.dogname.show-for-medium-up= link_to dog.name, dog_path(dog)
+                %h2.dogbreed.show-for-medium-up= dog.breed
+                %h3.dogage.show-for-medium-up= dog.age
           %h2.see-all= link_to "See All Found", all_found_path
         .index-dog-right.show-for-medium-up
           = image_tag "dog6.png"
         .index-dog-left.show-for-medium-up
           = image_tag "dog4.png"
-    - else
-      %h1 HAHAHAHAHAHAHAHA
+
+/ Building a stronger community of dog lovers to help missing family members find their way home, faster.
